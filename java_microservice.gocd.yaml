@@ -68,12 +68,7 @@ pipelines:
             ENV_NAME: dev
           jobs:
             test:
-              tasks:
-                - exec:
-                    command: bash
-                    arguments:
-                      - -c 
-                      - echo "Tests execution to DEV"
+              tasks: *test-tasks
       - deploy-int:
           environment_variables:
             ENV_NAME: int
@@ -85,12 +80,7 @@ pipelines:
             ENV_NAME: int
           jobs:
             test:
-              tasks:
-                - exec:
-                    command: bash
-                    arguments:
-                      - -c 
-                      - echo "Tests execution to INT"
+              tasks: *test-tasks
       - deploy-prd:
           environment_variables:
             ENV_NAME: prd
@@ -102,11 +92,6 @@ pipelines:
             ENV_NAME: prd
           jobs:
             test:
-              tasks:
-                - exec:
-                    command: bash
-                    arguments:
-                      - -c 
-                      - echo "Tests execution to PRD"
+              tasks: *test-tasks
 
       
